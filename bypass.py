@@ -1,12 +1,12 @@
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-from keep_alive import keep_alive
+from keep_alive import keep_alive  # នាំចូលមុខងារដាស់ Server ពី keep_alive.py
 
 # ១. បំពេញ Token របស់ Bot អ្នកនៅទីនេះ
 BOT_TOKEN = '8823039793:AAHPx4gdhwc9RFBHTvQqRTx75EGD9sq6TVw'
 
 # ២. ព័ត៌មាន Channel និង YouTube របស់អ្នក
-CHANNEL_USERNAME = '@SPROBLOX'
+CHANNEL_USERNAME = 'https://t.me/SPROBLOX'
 YOUTUBE_LINK = 'https://www.youtube.com/@Sp_roblox1'
 
 # ៣. លីង Bot របស់គេដែលអ្នកចង់បញ្ជូនសមាជិកទៅ
@@ -48,7 +48,7 @@ def handle_message(message):
         bot.reply_to(message, "⚠️ អ្នកមិនទាន់បាន Join Channel ទេ! សូមបំពេញលក្ខខណ្ឌសិន៖", reply_markup=get_verification_markup())
     else:
         # បើ Join ហើយ ប្រាប់ឱ្យគេទៅប្រើ Bot របស់គេ
-        bot.reply_to(message, f"✅ ការផ្ទៀងផ្ទាត់ជោគជ័យ!\n\nដើម្បីទម្លុះលីង (Bypass) សូមផ្ញើលីងរបស់អ្នកទៅកាន់ Bot នេះជំនួសវិញ៖\n👉 **[@bypasstools_bot]({BYPASS_BOT_LINK})**", parse_mode="Markdown")
+        bot.reply_to(message, f"✅ ការផ្ទៀងផ្ទាត់ជោគជ័យ!\n\nដើម្បីទម្លុះលីង (Bypass) សូមចុចចូលទៅកាន់ Bot នេះរួចផ្ញើលីងរបស់អ្នកចូលទីនោះ៖\n👉 **[@bypasstools_bot]({BYPASS_BOT_LINK})**", parse_mode="Markdown")
 
 @bot.callback_query_handler(func=lambda call: call.data == "check_verify")
 def verify_callback(call):
@@ -66,5 +66,8 @@ def verify_callback(call):
         bot.answer_callback_query(call.id, "⚠️ Bot មិនទាន់ក្លាយជា Admin ក្នុង Channel ទេ។", show_alert=True)
 
 if __name__ == "__main__":
+    print("✅ ចាប់ផ្តើមដំណើរការ Web Server (ដើម្បីកុំឱ្យ Render បិទ)...")
+    keep_alive() # ហៅមុខងារដាស់ Server
+    
     print("✅ Gateway Bot កំពុងដំណើរការ...")
     bot.infinity_polling()
