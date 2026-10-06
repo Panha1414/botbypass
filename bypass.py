@@ -6,7 +6,7 @@ from keep_alive import keep_alive  # នាំចូលមុខងារដា�
 BOT_TOKEN = '8823039793:AAHPx4gdhwc9RFBHTvQqRTx75EGD9sq6TVw'
 
 # ២. ព័ត៌មាន Channel និង YouTube របស់អ្នក
-CHANNEL_USERNAME = 'https://t.me/SPROBLOX'
+CHANNEL_USERNAME = '@SPROBLOX'
 YOUTUBE_LINK = 'https://www.youtube.com/@Sp_roblox1'
 
 # ៣. លីង Bot របស់គេដែលអ្នកចង់បញ្ជូនសមាជិកទៅ
